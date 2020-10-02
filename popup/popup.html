@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Miriam Libre', sans-serif;
+            transition: .5s;
+            outline: none;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+
+        }
+        #open{
+            height: 4rem;
+            width: 8rem;
+            border: none;
+            cursor: pointer;
+            background: rebeccapurple;
+            border-radius: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            transform: translate(-50%,-50%);
+            text-transform: uppercase;
+            animation: animate 5s linear infinite;
+            box-shadow: inset 5px 5px 15px rgba(0,0,0,.5);
+        }
+        .popup{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,.5);
+        }
+
+        .popup.active{
+            display: flex;
+        }
+
+        #box{
+            height: 22rem;
+            width: 40rem;
+            background: #fff;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 3rem;
+            border-radius: 2rem;
+            box-shadow: 5px 5px 15px rgba(0,0,0,.4);
+        }
+
+        #close{
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            height: 3rem;
+            width: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3rem;
+            border: none;
+            background: rebeccapurple;
+            transform: rotate(45deg);
+            cursor: pointer;
+            animation: animate 5s linear infinite;
+            box-shadow: inset 5px 5px 15px rgba(0,0,0,.5);
+        }
+
+        #close span{
+            position: absolute;
+            height: .2rem;
+            width: 1.4rem;
+            background: #fff;
+        }
+
+        #close span:last-child{
+            transform: rotate(90deg);
+        }
+
+        @keyframes animate {
+            0%{
+                filter: hue-rotate(0deg);
+            }100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="open">Open</button>
+    <div id="container" class="popup">
+        <div id="box">
+            <button id="close"><span></span><span></span></button>
+            <h1>LOL</h1>
+            <p>Laughing out loud..</p>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+        const open = document.getElementById("open").addEventListener("click",()=>{
+            container.classList.add("active");
+        });
+        const close = document.getElementById("close").addEventListener("click",()=>{
+            container.classList.remove("active");
+        });
+
+    </script>
+    
+</body>
+</html>
